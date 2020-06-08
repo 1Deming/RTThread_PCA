@@ -40,6 +40,10 @@
 #define RT_CONSOLEBUF_SIZE 256
 #define RT_CONSOLE_DEVICE_NAME "uart1"
 #define RT_VER_NUM 0x30104
+#define ARCH_ARM
+#define RT_USING_CPU_FFS
+#define ARCH_ARM_CORTEX_M
+#define ARCH_ARM_CORTEX_M3
 
 /* RT-Thread Components */
 
@@ -77,6 +81,8 @@
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
 #define RT_USING_PIN
+#define RT_USING_SPI
+#define RT_USING_SPI_OLCD
 
 /* Using USB */
 
@@ -144,19 +150,24 @@
 
 /* samples: kernel and components samples */
 
+#define SOC_FAMILY_STM32
+#define SOC_SERIES_STM32L1
 
 /* Hardware Drivers Config */
 
 #define SOC_STM32L152VET6
-#define SOC_SERIES_STM32L1
 
 /* Onboard Peripheral Drivers */
+
+#define BSP_USING_SPI_OLCD
 
 /* On-chip Peripheral Drivers */
 
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_SPI
+#define BSP_USING_SPI2
 
 /* Board extended module Drivers */
 

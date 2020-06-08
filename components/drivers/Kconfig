@@ -245,6 +245,10 @@ config RT_USING_SPI
             bool "Using RW009/007 SPI Wi-Fi wireless interface"
             select RT_USING_LWIP
             default n
+
+        config RT_USING_SPI_OLCD
+            bool "Using spi olcd interface"
+            default n
     endif
 
 config RT_USING_WDT

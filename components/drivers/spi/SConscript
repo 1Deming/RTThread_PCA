@@ -30,6 +30,9 @@ if GetDepend('RT_USING_SFUD'):
     elif rtconfig.CROSS_TOOL == 'keil':
         LOCAL_CCFLAGS += ' --c99'
 
+if GetDepend('RT_USING_SPI_OLCD'):
+    src_device += ['spi_olcd.c']
+
 src += src_device
 
 group = DefineGroup('DeviceDrivers', src, depend = ['RT_USING_SPI'], CPPPATH = CPPPATH, LOCAL_CCFLAGS = LOCAL_CCFLAGS)
