@@ -64,7 +64,6 @@
 #define FINSH_CMD_SIZE 80
 #define FINSH_USING_MSH
 #define FINSH_USING_MSH_DEFAULT
-#define FINSH_USING_MSH_ONLY
 #define FINSH_ARG_MAX 10
 
 /* Device virtual file system */
@@ -78,8 +77,6 @@
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
 #define RT_USING_PIN
-#define RT_USING_SENSOR
-#define RT_USING_SENSOR_CMD
 
 /* Using USB */
 
@@ -143,14 +140,15 @@
 
 
 /* miscellaneous packages */
-#define SOC_FAMILY_STM32
-#define SOC_SERIES_STM32F1
+
+
 /* samples: kernel and components samples */
 
 
 /* Hardware Drivers Config */
 
 #define SOC_STM32L152VET6
+#define SOC_SERIES_STM32L1
 
 /* Onboard Peripheral Drivers */
 

@@ -2,9 +2,9 @@ menu "Hardware Drivers Config"
 
 config SOC_STM32L152VET6
     bool "select MCU ID"
-    select SOC_SERIES_STM32L1
     select RT_USING_COMPONENTS_INIT
     select RT_USING_USER_MAIN
+    select SOC_SERIES_STM32L1
     default y
 
     menu "Onboard Peripheral Drivers"

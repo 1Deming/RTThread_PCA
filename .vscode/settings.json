@@ -1,0 +1,20 @@
+{
+    "files.exclude": {
+
+    "bsp/stm32/stm32f*": true,
+    "bsp/stm32/stm32g*": true,
+    "bsp/stm32/stm32h*": true,
+    
+    "bsp/stm32/libraries/STM32F*": true,
+    "bsp/stm32/libraries/STM32G*": true,
+    "bsp/stm32/libraries/STM32H*": true,
+    "bsp/stm32/libraries/STM32L0*": true,
+    "bsp/stm32/libraries/STM32L4*": true,
+    
+    "bsp/stm32/docs/": true,
+
+
+
+
+    }
+}

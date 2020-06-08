@@ -82,7 +82,16 @@
 #define RT_USING_SERIAL
 #define RT_SERIAL_USING_DMA
 #define RT_SERIAL_RB_BUFSZ 64
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
+#define RT_USING_SPI
+#define RT_USING_QSPI
+#define RT_USING_SFUD
+#define RT_SFUD_USING_SFDP
+#define RT_SFUD_USING_FLASH_INFO_TABLE
+#define RT_SFUD_USING_QSPI
+#define RT_SFUD_SPI_MAX_HZ 50000000
 
 /* Using USB */
 
@@ -144,6 +153,7 @@
 
 /* peripheral libraries and drivers */
 
+#define PKG_USING_MPU6XXX
 
 /* miscellaneous packages */
 
@@ -161,6 +171,8 @@
 
 #define BSP_USING_USB_TO_USART
 #define BSP_USING_SDRAM
+#define BSP_USING_QSPI_FLASH
+#define BSP_USING_MPU9250
 #define BSP_USING_LCD
 
 /* On-chip Peripheral Drivers */
@@ -168,6 +180,21 @@
 #define BSP_USING_GPIO
 #define BSP_USING_UART
 #define BSP_USING_UART1
+#define BSP_USING_SPI
+#define BSP_USING_SPI1
+#define BSP_USING_QSPI
+#define BSP_USING_I2C1
+
+/* Notice: PB8 --> 24; PB9 --> 25 */
+
+#define BSP_I2C1_SCL_PIN 24
+#define BSP_I2C1_SDA_PIN 25
+#define BSP_USING_I2C2
+
+/* Notice: PH4 --> 116; PH5 --> 117 */
+
+#define BSP_I2C2_SCL_PIN 116
+#define BSP_I2C2_SDA_PIN 117
 #define BSP_USING_LTDC
 
 /* Board extended module Drivers */

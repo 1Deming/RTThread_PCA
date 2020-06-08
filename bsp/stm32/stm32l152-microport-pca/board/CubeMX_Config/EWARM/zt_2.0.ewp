@@ -1037,24 +1037,6 @@
         <name>$PROJ_DIR$/../Src/main.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$/../Src/gpio.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/adc.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/crc.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/spi.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/tim.c</name>
-      </file>
-      <file>
-        <name>$PROJ_DIR$/../Src/usart.c</name>
-      </file>
-      <file>
         <name>$PROJ_DIR$/../Src/stm32l1xx_it.c</name>
       </file>
       <file>
