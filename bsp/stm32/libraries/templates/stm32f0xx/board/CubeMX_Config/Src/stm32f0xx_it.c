@@ -132,6 +132,8 @@ void PendSV_Handler(void)
   /* USER CODE END PendSV_IRQn 1 */
 }
 
+#include "GUI.h"
+extern volatile int OS_TimeMS;
 /**
   * @brief This function handles System tick timer.
   */
@@ -142,7 +144,7 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-
+  OS_TimeMS ++ ;
   /* USER CODE END SysTick_IRQn 1 */
 }
 

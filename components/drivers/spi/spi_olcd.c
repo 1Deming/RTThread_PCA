@@ -326,7 +326,7 @@ void drv_oled_init()
     OLCD_DEBUG("drv olcd init start!\n");
 
 	if(spi_olcd_device.is_init)
-		goto hardware;
+		return ;
 
 	spi_olcd_device.is_init = RT_TRUE;
     
@@ -350,7 +350,7 @@ hardware:
     {
         .mode = RT_SPI_MASTER | RT_SPI_MODE_0 | RT_SPI_MSB,
         .data_width = 8,
-        .max_hz = 20 * 1000 * 1000 ,
+        .max_hz = 16 * 1000 * 1000 ,   //16M
     };
     rt_spi_configure(spi_olcd_device.rt_spi_device,&spi_configuration);
 
@@ -570,7 +570,7 @@ static rt_err_t spi_lcd_flush(void)
 
    return result;
 }
-FINSH_FUNCTION_EXPORT(spi_lcd_flush, flush all screen data into hardware.);
+//FINSH_FUNCTION_EXPORT(spi_lcd_flush, flush all screen data into hardware.);
 FINSH_FUNCTION_EXPORT(drv_oled_init, init olcd spi device and hardware device.);
 FINSH_FUNCTION_EXPORT_ALIAS(drv_oled_display_all_screen,display_allUI,display all screen.);
 FINSH_FUNCTION_EXPORT_ALIAS(drv_oled_clear_all_screen,clear_allUI,clear all screen.);
