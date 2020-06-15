@@ -26,10 +26,13 @@
 #include <stdbool.h>
 #include "app_scr_class12.h"
 #include <stdio.h>
-#include "ssz_common.h"
-#include "widget_text.h"
-#include "widget_image.h"
-
+//#include "ssz_common.h"
+//#include "widget_text.h"
+//#include "widget_image.h"
+#include "string.h"
+#include "rtdef.h"
+#include "app_route.h"
+#include "display.h"
 
 /*********************************************************************
 *

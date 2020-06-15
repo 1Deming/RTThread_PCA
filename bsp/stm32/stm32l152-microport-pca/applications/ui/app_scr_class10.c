@@ -29,7 +29,10 @@
 //#include "ssz_common.h"
 //#include "widget_text.h"
 //#include "widget_image.h"
-
+#include "string.h"
+#include "rtdef.h"
+#include "app_route.h"
+#include "display.h"
 
 /*********************************************************************
 *

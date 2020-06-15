@@ -27,14 +27,17 @@
 #include <stdbool.h>
 #include "app_scr_class17.h"
 #include <stdio.h>
-#include "ssz_common.h"
-#include "widget_text.h"
-#include "widget_image.h"
-#include "record_log_config.h"
-#include "ert_RTC.h"
-#include "param.h"
-#include "record_log_text.h"
-
+//#include "ssz_common.h"
+//#include "widget_text.h"
+//#include "widget_image.h"
+//#include "record_log_config.h"
+//#include "ert_RTC.h"
+//#include "param.h"
+//#include "record_log_text.h"
+#include "string.h"
+#include "rtdef.h"
+#include "app_route.h"
+#include "display.h"
 
 /*********************************************************************
 *
@@ -72,28 +75,28 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 *
 ***********************************************************************/
 
-static void put_histroy_index(int cur_index, int total_index)
-{
-	char *p;
-	p = get_dynamic_string(kStrDynamic1);
-	sprintf(p, "%d/%d", cur_index, total_index);
-	TEXT_SetText(WM_GetDialogItem(ui_get_current_hwin(), HISTROY_ID_INDEX), p);
-}
+//static void put_histroy_index(int cur_index, int total_index)
+//{
+//	char *p;
+//	p = get_dynamic_string(kStrDynamic1);
+//	sprintf(p, "%d/%d", cur_index, total_index);
+//	TEXT_SetText(WM_GetDialogItem(ui_get_current_hwin(), HISTROY_ID_INDEX), p);
+//}
 
-static void put_histroy_title_and_item(const LogOneRecord* one_record)
-{
-	char show_text[128];
-	char *p;
-	SszDateTime tim;
-	
-	p = get_dynamic_string(kStrDynamic2);
-	//ssz_seconds_to_time(one_rec.occur_time, &tim);
-	//sprintf(p, "%s %d-%d-%d", log_event_type_to_const_str(log_type), tim.year+2000,tim.month, tim.day);
-	TEXT_SetText(WM_GetDialogItem(ui_get_current_hwin(), HISTROY_ID_TITLE), p);	
+//static void put_histroy_title_and_item(const LogOneRecord* one_record)
+//{
+//	char show_text[128];
+//	char *p;
+//	SszDateTime tim;
+//	
+//	p = get_dynamic_string(kStrDynamic2);
+//	//ssz_seconds_to_time(one_rec.occur_time, &tim);
+//	//sprintf(p, "%s %d-%d-%d", log_event_type_to_const_str(log_type), tim.year+2000,tim.month, tim.day);
+//	TEXT_SetText(WM_GetDialogItem(ui_get_current_hwin(), HISTROY_ID_TITLE), p);	
 
-	TEXT_SetText(WM_GetDialogItem(ui_get_current_hwin(), HISTROY_ID_ITEM), 
-		         record_log_to_str(one_record, show_text, ssz_array_size(show_text)));
-}
+//	TEXT_SetText(WM_GetDialogItem(ui_get_current_hwin(), HISTROY_ID_ITEM), 
+//		         record_log_to_str(one_record, show_text, ssz_array_size(show_text)));
+//}
 
 static void push_message(type_MsgBody4UICtrlMsg *msg)
 {

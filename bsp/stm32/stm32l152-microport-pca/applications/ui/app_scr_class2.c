@@ -28,7 +28,10 @@
 #include <stdbool.h>
 #include "app_scr_class2.h"
 #include <stdio.h>
-
+#include "string.h"
+#include "rtdef.h"
+#include "app_route.h"
+#include "display.h"
 
 /*********************************************************************
 *
@@ -114,12 +117,12 @@ static void _cbDialog(WM_MESSAGE * pMsg)
 				
 			ptr = get_string(kStrpresscanclekey);
 			strlen = GUI_GetStringDistX(ptr);
-			ui_rect_init_by_size(rect, 6, 44, strlen, 12);
+			//ui_rect_init_by_size(rect, 6, 44, strlen, 12);
 			GUI_DispStringInRect(ptr, &rect, GUI_TA_LEFT|GUI_TA_VCENTER);
 
 			ptr = get_string(kStrpressselectkey);
 			strlen = GUI_GetStringDistX(ptr);
-			ui_rect_init_by_size(rect, 182, 44, strlen, 16);
+			//ui_rect_init_by_size(rect, 182, 44, strlen, 16);
 			GUI_DispStringInRect(ptr, &rect, GUI_TA_LEFT|GUI_TA_VCENTER);
 			
 			break; 

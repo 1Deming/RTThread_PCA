@@ -26,6 +26,10 @@
 #include "string_data.h"
 #include "font_data.h"
 #include <stdbool.h>
+#include "string.h"
+#include "rtdef.h"
+#include "app_route.h"
+#include "display.h"
 
 /*********************************************************************
 *

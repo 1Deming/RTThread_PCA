@@ -86,7 +86,7 @@ static void put_message(uint8_t id)
     
     hWin = WM_GetDialogItem(ui_get_current_hwin(), ID_STRING2);
       ptr = get_string(kStrChangePasswordOk);
-      TEXT_SetText(hWin, "hello\n");
+      TEXT_SetText(hWin, ptr);
       WM_BringToTop(hWin);
     
     break;  

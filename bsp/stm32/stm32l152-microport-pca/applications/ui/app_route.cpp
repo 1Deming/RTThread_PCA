@@ -7,7 +7,7 @@
 #include "string.h"
 
 #include "app_route.h"
-//#include "config.h"
+//#include "config.h" 
 #include "WM.h"
 
 //add by deming, 2020/05/27
@@ -35,7 +35,7 @@
 /************************************************
  * Declaration
  ************************************************/
-static UI_ScreenCommon g_ui_common_param;
+ UI_ScreenCommon g_ui_common_param;
 
 const ScreenInfo g_scr_routes[SCREEN_NUMBER_TOTAL]= {
 
@@ -237,32 +237,148 @@ void ert_uiDispService(uint8_T UIClassID,uiClassIDArray UIIDArray,
 }
 
 
+/*
+	初始化olcd的显示任务
 
+*/
+#include "font_data.h"
 
+type_MsgBody4UICtrlMsg disp_msg;
+void wm_bk_callback(WM_MESSAGE *pMsg)
+{
+	switch(pMsg->MsgId)
+	{
+		case WM_PAINT:
+			//WINDOW_SetBkColor(pMsg->hWin, GUI_WHITE);
+            GUI_Clear();
+			break;
 
+		default:
+			WM_DefaultProc(pMsg);
+			break;
 
+	}
+}
 
+int init_emWin_Env()
+{
+	//ssz_locale_set_lang(kSszLangSimplifiedChinese);
+	//ssz_locale_set_country_region(kSszCountryRegionChina);
 
+	font_data_select_by_lang(kSszLangSimplifiedChinese);
+	string_data_select_by_lang(kSszLangSimplifiedChinese);
 
+	//init emWin component
+	if( GUI_Init() != 0)
+	{
+	while(1);
+	}
 
+ }
+INIT_ENV_EXPORT(init_emWin_Env);
 
+static void display_UI(void *parameter)
+{
+	uint8_t index;
+	uint8_t UIID = 0;
+	
+	GUI_UC_SetEncodeUTF8();
+	GUI_SetBkColor(GUI_BLACK);
+	WM_SetCallback(WM_HBKWIN, wm_bk_callback);
+	GUI_SetColor(GUI_WHITE);
 
+	GUI_SetFont(get_font(14));
 
+	while(1)
+	{
+		index = (index + 1)%7;
+		if(  index >= 7)
+			index = 1 ;
+		disp_msg.SItem.DataValArray[1] = index;      
+		disp_msg.SItem.DataValArray[2] = index;
+		disp_msg.SItem.DataValArray[3] = index;
+		disp_msg.SItem.DataValArray[4] = index;
 
+		disp_msg.ditem.DataValArray[1] = index;
+		disp_msg.ditem.DataValArray[2] = index;
+		disp_msg.ditem.DataValArray[3] = index;      
+		disp_msg.ditem.DataValArray[4] = index;
+		disp_msg.ditem.DataValArray[5] = index;
 
+		disp_msg.CursorIndex.CursorType = index;
 
+		disp_msg.SItem.DataValArray[5] = index;
+		disp_msg.SItem.DataValArray[6] = index;
+		disp_msg.SItem.DataValArray[7] = index;
+		disp_msg.SItem.DataValArray[8] = index;
+		disp_msg.SItem.DataValArray[9] = index;
+		disp_msg.SItem.DataValArray[10] = index;
+		disp_msg.SItem.DataValArray[11] = index;
+		disp_msg.SItem.DataValArray[12] = index;
+		disp_msg.SItem.DataValArray[13] = index;
+		disp_msg.SItem.DataValArray[14] = index;
+		disp_msg.SItem.DataValArray[15] = index;
+		disp_msg.SItem.DataValArray[16] = index;
+		disp_msg.SItem.DataValArray[21] = index;
 
+		disp_msg.ditem.DataValArray[1] = index;
+		disp_msg.ditem.DataValArray[2] = index;
+		disp_msg.ditem.DataValArray[3] = index;
+		disp_msg.CursorIndex.CursorIndex = index;
+			
+		UIID = (UIID+1)%3;
+		if( UIID == 0 )
+			UIID = 1 ;
+		rt_kprintf("display ui, UIID = %d , Index = %d \n",UIID,index);
+		ert_uiDispService( 3 ,disp_msg.UIID, &disp_msg.CursorIndex, &disp_msg.ditem, &disp_msg.SItem);
+		
+		rt_thread_mdelay(2000);
+	}
+}
 
+static void enWin_server(void *parameter)
+{
 
+	while(1)
+	{
+		GUI_Exec();
+		rt_thread_mdelay(10);
+	}
+}
+	
+static char thread_dispaly_stack[1024];
+static struct rt_thread thread_display;
+static char thread_emWin_server_stack[1024];
+static struct rt_thread thread_emWin_server;
 
+int display_thread_init( void )
+{
+	rt_thread_init(
+				&thread_display,
+				"display task",
+				display_UI,
+				RT_NULL,
+				&thread_dispaly_stack[0],
+				sizeof(thread_dispaly_stack),
+				20,5);
 
+	rt_thread_init(
+				&thread_emWin_server,
+				"enWin server task",
+				enWin_server,
+				RT_NULL,
+				&thread_emWin_server_stack[0],
+				sizeof(thread_emWin_server_stack),
+				18,5);
 
+	rt_thread_startup(&thread_emWin_server);
+	rt_thread_startup(&thread_display);
+				
+	rt_kprintf("thread startup thread_display\n");
 
-
-
-
-
-
+	return 0;
+}
+INIT_APP_EXPORT(display_thread_init);
 
 
 

@@ -29,7 +29,10 @@
 #include <stdbool.h>
 #include "app_scr_class19.h"
 #include <stdio.h>
-
+#include "string.h"
+#include "rtdef.h"
+#include "app_route.h"
+#include "display.h"
 
 /*********************************************************************
 *

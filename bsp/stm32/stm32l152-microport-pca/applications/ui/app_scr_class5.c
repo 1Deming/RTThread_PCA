@@ -30,6 +30,7 @@
 //#include "ssz_common.h"
 #include "rtthread.h"
 #include "display.h"
+#include "app_route.h"
 /*********************************************************************
 *
 *       Defines
@@ -218,7 +219,7 @@ WM_HWIN app_scr_class5_create(type_MsgBody4UICtrlMsg *msg)
 {
 	WM_HWIN hWin;	
 	hWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
-	ui_clear_init_once_flag();
+	//ui_clear_init_once_flag();
 	return hWin;
 }
 
