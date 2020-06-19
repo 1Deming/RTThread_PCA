@@ -111,6 +111,10 @@
 /* Utilities */
 
 
+/* ui framework */
+
+#define RT_USING_EMWIN
+
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
@@ -168,6 +172,7 @@
 #define BSP_USING_UART1
 #define BSP_USING_SPI
 #define BSP_USING_SPI2
+#define BSP_USING_CRC
 
 /* Board extended module Drivers */
 

@@ -35,4 +35,7 @@ source "$RTT_DIR/components/vbus/Kconfig"
 
 source "$RTT_DIR/components/utilities/Kconfig"
 
+#add by deming, 2020/06/18
+source "$RTT_DIR/components/ui/emWin/Kconfig"
+
 endmenu

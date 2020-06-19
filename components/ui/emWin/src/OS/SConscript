@@ -1,0 +1,19 @@
+from building import *
+
+# The set of source files associated with this SConscript file.
+src = Split('''
+''')
+
+cwd = GetCurrentDir()
+CPPPATH = [cwd+'/../inc']
+
+if not GetDepend(['EMWIN_USING_OS']):
+    src += ['GUI_X.c']
+
+if GetDepend(['EMWIN_USING_OS']):
+    src += ['GUI_X_OS_RTT.c']
+
+group = DefineGroup('emWin', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')
+

@@ -1,7 +1,7 @@
 menu "Hardware Drivers Config"
 
 config SOC_STM32L152VET6
-    bool "select MCU ID"
+    bool 
     select RT_USING_COMPONENTS_INIT
     select RT_USING_USER_MAIN
     select SOC_SERIES_STM32L1

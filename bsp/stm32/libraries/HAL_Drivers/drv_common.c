@@ -36,9 +36,10 @@ void rt_hw_systick_init(void)
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
-
+#ifndef EMWIN_USING_OS
 #include "GUI.h"
 extern volatile int OS_TimeMS;
+#endif
 
 /**
  * This is the timer interrupt service routine.
@@ -55,8 +56,12 @@ void SysTick_Handler(void)
     /* leave interrupt */
     rt_interrupt_leave();
 	
-	//emwin tick
-	  OS_TimeMS ++ ;
+
+		#ifndef EMWIN_USING_OS
+			//emwin tick
+			OS_TimeMS ++ ;
+		#endif
+
 }
 
 uint32_t HAL_GetTick(void)

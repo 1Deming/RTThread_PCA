@@ -1,0 +1,12 @@
+from building import *
+import os
+
+cwd     = GetCurrentDir()
+src     = Glob('*.c')
+src     += Glob('*.cpp')
+
+path = [cwd]
+
+group = DefineGroup('App/ui', src, depend = [''], CPPPATH = path)
+
+Return('group')

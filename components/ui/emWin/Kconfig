@@ -1,0 +1,15 @@
+menu "ui framework"
+
+config RT_USING_EMWIN
+    bool "ui framework emWin"
+    default n
+
+if RT_USING_EMWIN
+
+config EMWIN_USING_OS
+    bool "emWin using RTOS"
+    default n
+   
+endif
+
+endmenu

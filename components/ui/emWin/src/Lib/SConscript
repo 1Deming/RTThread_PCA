@@ -1,0 +1,16 @@
+Import('rtconfig')
+from building import *
+
+cwd = GetCurrentDir()
+src = Split('''
+''')
+
+LIBPATH = [cwd ]    #LIBPATH 指定库的路径，表示库的搜索路径是当前目录下的'libs'目录
+
+#未知原因只能添加.lib结尾的文件，.a库文件无法添加。
+LIBS = ['STemWin_CM3_wc32.a']   
+
+group = DefineGroup('ABC', src, depend = [''], LIBS = LIBS, LIBPATH=LIBPATH)
+
+Return('group')
+
