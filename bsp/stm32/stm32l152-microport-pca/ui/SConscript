@@ -2,10 +2,12 @@ from building import *
 import os
 
 cwd     = GetCurrentDir()
-src     = Glob('*.c')
-src     += Glob('*.cpp')
-
+src = Split('''
+''')
 path = [cwd]
+if GetDepend(['RT_USING_EMWIN']):
+    src     = Glob('*.c')
+    src     += Glob('*.cpp')
 
 group = DefineGroup('App/ui', src, depend = [''], CPPPATH = path)
 

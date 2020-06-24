@@ -1,8 +1,12 @@
 from building import *
 
 cwd     = GetCurrentDir()
-src     = Glob('*.c')
+src = Split('''
+''')
 CPPPATH = [cwd,cwd+'/../inc']
+
+if GetDepend(['RT_USING_EMWIN']):
+    src     = Glob('*.c')
 
 group = DefineGroup('emWin', src, depend = [''], CPPPATH = CPPPATH)
 

@@ -1,10 +1,14 @@
 from building import *
 
 cwd     = GetCurrentDir()
-src     = Glob('*.c')
-src     = src + Glob('font/*.c')
-src     = src + Glob('image/*.c')
+src = Split('''
+''')
 CPPPATH = [cwd]
+
+if GetDepend(['RT_USING_EMWIN']):
+    src     = Glob('*.c')
+    src     = src + Glob('font/*.c')
+    src     = src + Glob('image/*.c')
 
 group = DefineGroup('emWin', src, depend = [''], CPPPATH = CPPPATH)
 

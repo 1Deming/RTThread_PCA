@@ -93,6 +93,9 @@
 #define RT_DFS_ELM_USE_ERASE
 #define RT_DFS_ELM_REENTRANT
 #define RT_USING_DFS_DEVFS
+#define RT_USING_DFS_UFFS
+#define RT_UFFS_ECC_MODE_1
+#define RT_UFFS_ECC_MODE 1
 
 /* Device Drivers */
 
@@ -104,6 +107,7 @@
 #define RT_USING_I2C
 #define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
+#define RT_USING_MTD_NAND
 #define RT_USING_SDIO
 #define RT_SDIO_STACK_SIZE 512
 #define RT_SDIO_THREAD_PRIORITY 15
@@ -185,6 +189,9 @@
 /* Utilities */
 
 
+/* ui framework */
+
+
 /* RT-Thread online packages */
 
 /* IoT - internet of things */
@@ -243,7 +250,6 @@
 #define PHY_USING_LAN8720A
 #define BSP_USING_ETH
 #define BSP_USING_SDCARD
-#define BSP_USING_LCD
 
 /* On-chip Peripheral Drivers */
 

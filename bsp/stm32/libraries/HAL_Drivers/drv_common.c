@@ -36,9 +36,11 @@ void rt_hw_systick_init(void)
     HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 }
 
-#ifndef EMWIN_USING_OS
-#include "GUI.h"
-extern volatile int OS_TimeMS;
+#ifdef RT_USING_EMWIN
+    #ifndef EMWIN_USING_OS
+    #include "GUI.h"
+    extern volatile int OS_TimeMS;
+    #endif
 #endif
 
 /**
@@ -56,12 +58,12 @@ void SysTick_Handler(void)
     /* leave interrupt */
     rt_interrupt_leave();
 	
-
-		#ifndef EMWIN_USING_OS
-			//emwin tick
-			OS_TimeMS ++ ;
-		#endif
-
+    #ifdef RT_USING_EMWIN
+        #ifndef EMWIN_USING_OS
+        //emwin tick
+        OS_TimeMS ++ ;
+        #endif
+    #endif
 }
 
 uint32_t HAL_GetTick(void)

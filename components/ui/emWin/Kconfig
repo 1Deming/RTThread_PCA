@@ -2,6 +2,7 @@ menu "ui framework"
 
 config RT_USING_EMWIN
     bool "ui framework emWin"
+    select RT_USING_SPI_OLCD
     default n
 
 if RT_USING_EMWIN

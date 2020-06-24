@@ -254,7 +254,7 @@ static sfud_err hardware_init(sfud_flash *flash) {
     result = sfud_spi_port_init(flash);
     if (result != SFUD_SUCCESS) {
         return result;
-    }
+    } 
 
 #ifdef SFUD_USING_QSPI
     /* set default read instruction */

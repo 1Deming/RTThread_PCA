@@ -116,6 +116,7 @@ int dfs_elm_mount(struct dfs_filesystem *fs, unsigned long rwflag, const void *d
     {
         if (geometry.bytes_per_sector > _MAX_SS)
         {
+            rt_kprintf("geometry.bytes_per_sector is %d , _MAX_SS is %d\n",geometry.bytes_per_sector,_MAX_SS);
             rt_kprintf("The sector size of device is greater than the sector size of FAT.\n");
             return -EINVAL;
         }
@@ -838,9 +839,10 @@ static const struct dfs_filesystem_ops dfs_elm =
 
 int elm_init(void)
 {
+		rt_kprintf("[dfs elm] elm init.\n");
     /* register fatfs file system */
     dfs_register(&dfs_elm);
-
+	
     return 0;
 }
 INIT_COMPONENT_EXPORT(elm_init);

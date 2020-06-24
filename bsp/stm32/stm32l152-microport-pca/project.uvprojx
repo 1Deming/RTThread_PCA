@@ -54,7 +54,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\build\keil\List\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -338,7 +338,7 @@
               <MiscControls>--c99 --wchar32</MiscControls>
               <Define>USE_HAL_DRIVER, STM32L152xE</Define>
               <Undefine></Undefine>
-              <IncludePath>.;..\..\..\include;.;applications;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;ui;..\..\..\libcpu\arm\cortex-m3;..\..\..\libcpu\arm\common;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\common;..\..\..\components\ui\emWin\driver;..\..\..\components\ui\emWin\resource;..\..\..\components\ui\emWin\src\Config;..\..\..\components\ui\emWin\src\inc;..\..\..\components\ui\emWin\src\inc;..\libraries\STM32L1xx_HAL\STM32L1xx_HAL_Driver\Inc;..\libraries\STM32L1xx_HAL\CMSIS\Device\ST\stm32l1xx\Include;..\libraries\STM32L1xx_HAL\CMSIS\Include</IncludePath>
+              <IncludePath>.;..\..\..\include;.;applications;board;board\CubeMX_Config\Inc;board\ports;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;ui;..\..\..\libcpu\arm\cortex-m3;..\..\..\libcpu\arm\common;..\..\..\components\dfs\include;..\..\..\components\dfs\filesystems\devfs;..\..\..\components\dfs\filesystems\elmfat;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\spi\sfud\inc;..\..\..\components\drivers\include;..\..\..\components\finsh;..\..\..\components\libc\compilers\common;..\..\..\components\ui\emWin\driver;..\..\..\components\ui\emWin\resource;..\..\..\components\ui\emWin\src\Config;..\..\..\components\ui\emWin\src\inc;..\..\..\components\ui\emWin\src\inc;..\libraries\STM32L1xx_HAL\STM32L1xx_HAL_Driver\Inc;..\libraries\STM32L1xx_HAL\CMSIS\Device\ST\stm32l1xx\Include;..\libraries\STM32L1xx_HAL\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -478,6 +478,11 @@
               <FilePath>board\CubeMX_Config\Src\stm32l1xx_hal_msp.c</FilePath>
             </File>
             <File>
+              <FileName>drv_qspi_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\drv_qspi_flash.c</FilePath>
+            </File>
+            <File>
               <FileName>startup_stm32l152xe.s</FileName>
               <FileType>2</FileType>
               <FilePath>..\libraries\STM32L1xx_HAL\CMSIS\Device\ST\STM32L1xx\Source\Templates\arm\startup_stm32l152xe.s</FilePath>
@@ -510,111 +515,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>App/ui</GroupName>
-          <Files>
-            <File>
-              <FileName>app_scr_class1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class1.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class10.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class10.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class11.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class11.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class12.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class12.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class13.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class13.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class14.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class14.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class15.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class15.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class16.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class16.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class17.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class17.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class18.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class18.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class19.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class19.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class2.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class20.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class3.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class3.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class4.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class5.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class6.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class6.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class8.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class8.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_scr_class9.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>ui\app_scr_class9.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_route.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>ui\app_route.cpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>CORTEX-M3</GroupName>
           <Files>
             <File>
@@ -641,6 +541,51 @@
               <FileName>showmem.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\libcpu\arm\common\showmem.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Filesystem</GroupName>
+          <Files>
+            <File>
+              <FileName>dfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs_fs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_posix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs_posix.c</FilePath>
+            </File>
+            <File>
+              <FileName>devfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\filesystems\devfs\devfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_elm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\filesystems\elmfat\dfs_elm.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\filesystems\elmfat\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ccsbcs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\filesystems\elmfat\option\ccsbcs.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -689,10 +634,10 @@
                 <v6WtE>2</v6WtE>
                 <v6Rtti>2</v6Rtti>
                 <VariousControls>
-                  <MiscControls></MiscControls>
+                  <MiscControls> --c99</MiscControls>
                   <Define> </Define>
                   <Undefine> </Undefine>
-                  <IncludePath> </IncludePath>
+                  <IncludePath></IncludePath>
                 </VariousControls>
               </Cads>
               <Aads>
@@ -737,9 +682,19 @@
               <FilePath>..\..\..\components\drivers\spi\spi_dev.c</FilePath>
             </File>
             <File>
-              <FileName>spi_olcd.c</FileName>
+              <FileName>spi_flash_sfud.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\components\drivers\spi\spi_olcd.c</FilePath>
+              <FilePath>..\..\..\components\drivers\spi\spi_flash_sfud.c</FilePath>
+            </File>
+            <File>
+              <FileName>sfud.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\spi\sfud\src\sfud.c</FilePath>
+            </File>
+            <File>
+              <FileName>sfud_sfdp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\drivers\spi\sfud\src\sfud_sfdp.c</FilePath>
             </File>
             <File>
               <FileName>completion.c</FileName>
@@ -795,6 +750,11 @@
               <FileName>msh.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\msh.c</FilePath>
+            </File>
+            <File>
+              <FileName>msh_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\finsh\msh_file.c</FilePath>
             </File>
             <File>
               <FileName>finsh_compiler.c</FileName>
@@ -855,291 +815,6 @@
               <FileName>time.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\libc\compilers\common\time.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>emWin</GroupName>
-          <Files>
-            <File>
-              <FileName>display.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\driver\display.c</FilePath>
-            </File>
-            <File>
-              <FileName>font_data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\font_data.c</FilePath>
-            </File>
-            <File>
-              <FileName>image_data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image_data.c</FilePath>
-            </File>
-            <File>
-              <FileName>string_data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\string_data.c</FilePath>
-            </File>
-            <File>
-              <FileName>dengxian_regular_14.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\font\dengxian_regular_14.c</FilePath>
-            </File>
-            <File>
-              <FileName>heiti_regular_20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\font\heiti_regular_20.c</FilePath>
-            </File>
-            <File>
-              <FileName>heiti_regular_60.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\font\heiti_regular_60.c</FilePath>
-            </File>
-            <File>
-              <FileName>heiti_regular_88.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\font\heiti_regular_88.c</FilePath>
-            </File>
-            <File>
-              <FileName>AC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\AC.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_AC.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_AC.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_empty.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_empty.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_full.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_full.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_no.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_no.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_one.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_one.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_three.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_three.c</FilePath>
-            </File>
-            <File>
-              <FileName>battery_two.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\battery_two.c</FilePath>
-            </File>
-            <File>
-              <FileName>error.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\error.c</FilePath>
-            </File>
-            <File>
-              <FileName>exhaust.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\exhaust.c</FilePath>
-            </File>
-            <File>
-              <FileName>exhaust_pause.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\exhaust_pause.c</FilePath>
-            </File>
-            <File>
-              <FileName>exhaust_run.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\exhaust_run.c</FilePath>
-            </File>
-            <File>
-              <FileName>flush_max_dose_selected.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\flush_max_dose_selected.c</FilePath>
-            </File>
-            <File>
-              <FileName>flush_max_dose_unselected.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\flush_max_dose_unselected.c</FilePath>
-            </File>
-            <File>
-              <FileName>history_log.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\history_log.c</FilePath>
-            </File>
-            <File>
-              <FileName>info_select.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\info_select.c</FilePath>
-            </File>
-            <File>
-              <FileName>info_unselect.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\info_unselect.c</FilePath>
-            </File>
-            <File>
-              <FileName>infusion_pause.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\infusion_pause.c</FilePath>
-            </File>
-            <File>
-              <FileName>infusion_run.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\infusion_run.c</FilePath>
-            </File>
-            <File>
-              <FileName>infusion_stop.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\infusion_stop.c</FilePath>
-            </File>
-            <File>
-              <FileName>left_arrow.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\left_arrow.c</FilePath>
-            </File>
-            <File>
-              <FileName>lock.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\lock.c</FilePath>
-            </File>
-            <File>
-              <FileName>logo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\logo.c</FilePath>
-            </File>
-            <File>
-              <FileName>mode_selected.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\mode_selected.c</FilePath>
-            </File>
-            <File>
-              <FileName>mode_unselected.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\mode_unselected.c</FilePath>
-            </File>
-            <File>
-              <FileName>mute.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\mute.c</FilePath>
-            </File>
-            <File>
-              <FileName>mute_small.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\mute_small.c</FilePath>
-            </File>
-            <File>
-              <FileName>new_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\new_task.c</FilePath>
-            </File>
-            <File>
-              <FileName>peak_set_select.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\peak_set_select.c</FilePath>
-            </File>
-            <File>
-              <FileName>peak_set_unselect.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\peak_set_unselect.c</FilePath>
-            </File>
-            <File>
-              <FileName>right_arrow.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\right_arrow.c</FilePath>
-            </File>
-            <File>
-              <FileName>select_1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\select_1.c</FilePath>
-            </File>
-            <File>
-              <FileName>select_2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\select_2.c</FilePath>
-            </File>
-            <File>
-              <FileName>selected_pointer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\selected_pointer.c</FilePath>
-            </File>
-            <File>
-              <FileName>set_arrow.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\set_arrow.c</FilePath>
-            </File>
-            <File>
-              <FileName>sound_pause.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\sound_pause.c</FilePath>
-            </File>
-            <File>
-              <FileName>stop_infusion.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\stop_infusion.c</FilePath>
-            </File>
-            <File>
-              <FileName>system_setting.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\system_setting.c</FilePath>
-            </File>
-            <File>
-              <FileName>time_select.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\time_select.c</FilePath>
-            </File>
-            <File>
-              <FileName>time_unselect.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\time_unselect.c</FilePath>
-            </File>
-            <File>
-              <FileName>unselected_pointer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\unselected_pointer.c</FilePath>
-            </File>
-            <File>
-              <FileName>warning.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\warning.c</FilePath>
-            </File>
-            <File>
-              <FileName>warning_common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\resource\image\warning_common.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUIConf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\src\Config\GUIConf.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUIDRV_Template.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\src\Config\GUIDRV_Template.c</FilePath>
-            </File>
-            <File>
-              <FileName>LCDConf_FlexColor_Template.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\src\Config\LCDConf_FlexColor_Template.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUI_X.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\components\ui\emWin\src\OS\GUI_X.c</FilePath>
-            </File>
-            <File>
-              <FileName>STemWin_CM3_wc32.a</FileName>
-              <FileType>4</FileType>
-              <FilePath>..\..\..\components\ui\emWin\src\Lib\STemWin_CM3_wc32.a</FilePath>
             </File>
           </Files>
         </Group>

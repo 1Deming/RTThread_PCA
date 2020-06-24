@@ -48,7 +48,7 @@ static int  fd_alloc(struct dfs_fdtable *fdt, int startfd);
 int dfs_init(void)
 {
     static rt_bool_t init_ok = RT_FALSE;
-
+		rt_kprintf("[dfs] dfs init.\n");
     if (init_ok)
     {
         rt_kprintf("dfs already init.\n");
